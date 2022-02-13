@@ -1,3 +1,4 @@
+using HotelListingAPI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +30,8 @@ namespace HotelListingAPI
         {
 
             services.AddControllers();
+            services.AddDbContext<DatabaseContext>(options => 
+                            options.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
             services.AddCors(o =>
             {
                o.AddPolicy("AllowAll", builder =>
