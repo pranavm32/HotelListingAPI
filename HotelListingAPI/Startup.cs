@@ -13,6 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using HotelListingAPI.Configurations;
 
 namespace HotelListingAPI
 {
@@ -39,6 +41,7 @@ namespace HotelListingAPI
                 .AllowAnyMethod()
                 .AllowAnyHeader());
             });
+            services.AddAutoMapper(typeof(MapperInitializer));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HotelListingAPI", Version = "v1" });
