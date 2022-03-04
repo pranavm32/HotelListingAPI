@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotelListingAPI.IRepository
 {
-    interface IUnitOfWork: IDisposable
+    public interface IUnitOfWork: IDisposable
     {
         public IGenericRepository<Country> Countries { get; }
         public IGenericRepository<Hotel> Hotels { get; }

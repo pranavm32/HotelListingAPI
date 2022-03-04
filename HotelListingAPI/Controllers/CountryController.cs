@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using HotelListingAPI.Repository;
 using AutoMapper;
 using HotelListingAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HotelListingAPI.Controllers
 {
@@ -20,7 +21,7 @@ namespace HotelListingAPI.Controllers
         private readonly ILogger<CountryController> _logger;
         private readonly IMapper _mapper;
 
-        private CountryController(IUnitOfWork unitOfWork, ILogger<CountryController> logger, IMapper mapper)
+        public CountryController(IUnitOfWork unitOfWork, ILogger<CountryController> logger, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
@@ -43,6 +44,7 @@ namespace HotelListingAPI.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetCountry(int id)
         {
