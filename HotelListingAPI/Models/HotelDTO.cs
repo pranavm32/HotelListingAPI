@@ -23,6 +23,16 @@ namespace HotelListingAPI.Models
         public int CountryId { get; set; }
     }
 
+    public class UpdateHotelDTO: CreateHotelDTO
+    {
+
+    }
+
+    public class DeleteHotelDTO
+    {
+        public int Id { get; set; }
+    }
+
     public class HotelDTO : CreateHotelDTO
     {
         public int Id { get; set; }

@@ -16,6 +16,10 @@ namespace HotelListingAPI.Models
         [StringLength(maximumLength: 2, ErrorMessage = "ShortName is Too Long")]
         public string ShortName { get; set; }
     }
+    public class UpdateCountryDTO : CreateCountryDTO
+    {
+        public IList<CreateHotelDTO> Hotel { get; set; }
+    }
     public class CountryDTO: CreateCountryDTO
     {
         public int Id { get; set; }
